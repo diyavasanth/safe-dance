@@ -156,12 +156,6 @@
         </ul>
     </div>
 
-    <p class="footer-note">
-        The system operates continuously during practice sessions, helping dancers develop safer movement habits while maintaining artistic expression.
-    </p>
-      <img src="images/system-diagram.png" alt="System diagram of device setup">
-    </div>
-
     <div class="card">
   <h2>Hardware Architecture</h2>
   <p>
@@ -171,28 +165,52 @@
   <div class="components-list">
     <h3>Key Components:</h3>
     <ul>
-      <li>Arduino Nano/UNO microcontroller</li>
-      <li>MPU-6050 6-axis motion sensor</li>
-      <li>Buzzer for audio feedback</li>
-      <li>LiPo battery power supply</li>
-      <li>Custom PCB for component integration</li>
+      <li>Arduino Nano 33 BLE Sense Rev2 microcontroller with built-in Gyroscope and Accelerometer</li>
+      <li>MT3608 DC-DC step up boost power converter module</li>
+      <li>TP4056 battery charger module</li>
+      <li>LiPo 3.7V rechargeable battery</li>
+      <li>Piezo electronic buzzer</li>
     </ul>
   </div>
+
+      <div class="step-block">
+        <h3>Operation</h3>
+        <p>The device uses an Arduino Nano 33 BLE Sense Rev2 microcontroller to capture real-time motion data from its built-in inertial measurement unit (IMU). 
+          The Arduino continuously measures the dancer’s arm angle and triggers a piezo electronic buzzer to beep whenever the movement goes outside a preset range, providing 
+          immediate audio feedback during choreography practice. The system is powered by a 3.7 V LiPo rechargeable battery, which connects to a TP4056 charging module for safe 
+          recharging via USB. The MT3608 DC-DC step-up converter boosts the battery voltage to a stable 5 V to power the Arduino and buzzer. Together, these components create a 
+          compact, battery-powered wearable that helps dancers maintain correct posture and rhythm through both real-time feedback and recorded motion analysis.</p>
+    </div>
 </div>
 
     <!-- Iterations & Gotchas -->
     <div class="card">
       <h2>Iterations & Learnings</h2>
-      <p>
-        Building the prototype involved multiple iterations. Some challenges included inaccurate sensor readings, calibration issues, and battery limitations.
-      </p>
-      <div class="gotcha">
-        <strong>Gotcha:</strong> Initially, the MPU-6050 produced noisy data when the arm moved quickly. This was solved by implementing a smoothing filter in software.
-      </div>
-      <div class="gotcha">
-        <strong>Gotcha:</strong> Battery life was too short during practice sessions. Switching to a higher-capacity LiPo solved this problem.
-      </div>
-      <p><em>These iterations highlight problem-solving and engineering design skills.</em></p>
+      <ol>
+      <li>
+        <strong>Consolidated sensors to reduce bulk.</strong>
+        I began with a separate MPU6050 gyroscope and accelerometer, but the extra wiring increased the device’s size. Switching to an
+        <em>Arduino Nano 33 BLE Sense</em> (which integrates both sensors) streamlined the design and reduced the footprint by about 20%.
+      </li>
+
+      <li>
+        <strong>Optimized power for wearability.</strong>
+        A 5000mAh power bank was too heavy for a wearable prototype, so I moved to a compact 3.7V 1500mAh LiPo battery charged via a TP4056.
+        Because the Arduino required 5V, I added an <em>MT3608</em> DC-DC boost converter — a practical lesson in voltage regulation for embedded systems.
+      </li>
+
+      <li>
+        <strong>Improved mechanical stability through iteration.</strong>
+        Velcro straps initially failed during movement. After testing, I learned to stack the modules and secure them with rubber bands, which significantly improved stability and reduced the device’s footprint.
+      </li>
+
+      <li>
+        <strong>Enhanced user appeal with lightweight enclosure.</strong>
+        The early prototype looked unfinished, which could reduce engagement for younger users. To increase comfort and appeal, I enclosed the electronics in a lightweight Mickey Mouse rubber case, making the device more inviting to wear.
+      </li>
+    </ol>
+
+    <p class="note">These iterative changes reflect a user-centered design approach: optimizing sensor integration, power, mechanical reliability, and aesthetics to make the prototype practical for dance rehearsal.</p>
     </div>
 
     <!-- Impact / Feedback -->

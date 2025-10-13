@@ -86,11 +86,12 @@
   </style>
 </head>
 <body>
-
   <!-- Header / Hero -->
   <header>
     <h1>Safe-Speed Choreography Assistant</h1>
     <p>Arduino-based wearable system for dance safety</p>
+    <img src="images/device1.jpg" alt="Device in action" width="150" height="150">
+    <img src="images/device1.jpg" alt="Device in action" width="150" height="150">
     <img src="images/device1.jpg" alt="Device in action" width="150" height="150">
   </header>
 
@@ -109,51 +110,51 @@
       <div class="step-block">
         <h3>1. Smart Sensing</h3>
         <ul>
-            <li>Advanced motion sensors monitor your movements in real-time</li>
-            <li>Tracks both angular velocity (rotation) and linear acceleration</li>
-            <li>Built-in gyroscope and accelerometer provide precise 3D movement data</li>
+          <li>Advanced motion sensors monitor your movements in real-time</li>
+          <li>Tracks both angular velocity (rotation) and linear acceleration</li>
+          <li>Built-in gyroscope and accelerometer provide precise 3D movement data</li>
         </ul>
       </div>
 
       <div class="step-block">
-          <h3>2. Intelligent Processing</h3>
-          <ul>
-              <li>Arduino-based microcontroller analyzes movement patterns</li>
-              <li>Custom algorithms continuously evaluate motion parameters</li>
-              <li>Compares current movement against pre-set safety thresholds</li>
-          </ul>
+        <h3>2. Intelligent Processing</h3>
+        <ul>
+          <li>Arduino-based microcontroller analyzes movement patterns</li>
+          <li>Custom algorithms continuously evaluate motion parameters</li>
+          <li>Compares current movement against pre-set safety thresholds</li>
+        </ul>
       </div>
 
       <div class="step-block">
-          <h3>3. Instant Feedback</h3>
+        <h3>3. Instant Feedback</h3>
+        <ul>
+          <li>Provides immediate auditory alerts when safety limits are exceeded</li>
+          <li>Warns dancers about:</li>
           <ul>
-              <li>Provides immediate auditory alerts when safety limits are exceeded</li>
-              <li>Warns dancers about:</li>
-              <ul>
-                  <li>Excessive joint angles</li>
-                  <li>Dangerous movement speeds</li>
-                  <li>Rapid directional changes</li>
-              </ul>
+            <li>Excessive joint angles</li>
+            <li>Dangerous movement speeds</li>
+            <li>Rapid directional changes</li>
           </ul>
+        </ul>
       </div>
 
       <div class="step-block">
-          <h3>4. Safe Practice</h3>
-          <ul>
-              <li>Dancers adjust their movements based on real-time feedback</li>
-              <li>Helps maintain proper form and tempo</li>
-              <li>Builds muscle memory for safer dance techniques</li>
-          </ul>
+        <h3>4. Safe Practice</h3>
+        <ul>
+          <li>Dancers adjust their movements based on real-time feedback</li>
+          <li>Helps maintain proper form and tempo</li>
+          <li>Builds muscle memory for safer dance techniques</li>
+        </ul>
       </div>
 
       <div class="step-block">
-          <h3>5. Easy Usage</h3>
-          <ul>
-              <li>Lightweight, wearable design</li>
-              <li>Attaches securely to arms or legs</li>
-              <li>Powered by long-lasting LiPo battery</li>
-              <li>Configurable thresholds for different skill levels</li>
-          </ul>
+        <h3>5. Easy Usage</h3>
+        <ul>
+          <li>Lightweight, wearable design</li>
+          <li>Attaches securely to arms or legs</li>
+          <li>Powered by long-lasting LiPo battery</li>
+          <li>Configurable thresholds for different skill levels</li>
+        </ul>
       </div>
     </div>
 
@@ -176,171 +177,174 @@
 
       <div class="step-block">
         <h3>Operation</h3>
-        <p>The device uses an Arduino Nano 33 BLE Sense Rev2 microcontroller to capture real-time motion data from its built-in inertial measurement unit (IMU). 
-          The Arduino continuously measures the dancer’s arm angle and triggers a piezo electronic buzzer to beep whenever the movement goes outside a preset range, providing 
+        <p>
+          The device uses an Arduino Nano 33 BLE Sense Rev2 microcontroller to capture real-time motion data from its built-in inertial measurement unit (IMU). 
+          The Arduino continuously measures the dancer's arm angle and triggers a piezo electronic buzzer to beep whenever the movement goes outside a preset range, providing 
           immediate audio feedback during choreography practice. The system is powered by a 3.7 V LiPo rechargeable battery, which connects to a TP4056 charging module for safe 
           recharging via USB. The MT3608 DC-DC step-up converter boosts the battery voltage to a stable 5 V to power the Arduino and buzzer. Together, these components create a 
-          compact, battery-powered wearable that helps dancers maintain correct posture and rhythm through both real-time feedback and recorded motion analysis.</p>
+          compact, battery-powered wearable that helps dancers maintain correct posture and rhythm through both real-time feedback and recorded motion analysis.
+        </p>
       </div>
-  </div>
+    </div>
 
-    <!-- Iterations & Gotchas -->
+        <!-- Iterations & Gotchas -->
     <div class="card">
       <h2>Iterations & Learnings</h2>
       <ol>
-      <li>
-        <strong>Consolidated sensors to reduce bulk.</strong>
-        I began with a separate MPU6050 gyroscope and accelerometer, but the extra wiring increased the device’s size. Switching to an
-        <em>Arduino Nano 33 BLE Sense</em> (which integrates both sensors) streamlined the design and reduced the footprint by about 20%.
-      </li>
+        <li>
+          <strong>Consolidated sensors to reduce bulk.</strong>
+          I began with a separate MPU6050 gyroscope and accelerometer, but the extra wiring increased the device's size. Switching to an
+          <em>Arduino Nano 33 BLE Sense</em> (which integrates both sensors) streamlined the design and reduced the footprint by about 20%.
+        </li>
 
-      <li>
-        <strong>Optimized power for wearability.</strong>
-        A 5000mAh power bank was too heavy for a wearable prototype, so I moved to a compact 3.7V 1500mAh LiPo battery charged via a TP4056.
-        Because the Arduino required 5V, I added an <em>MT3608</em> DC-DC boost converter — a practical lesson in voltage regulation for embedded systems.
-      </li>
+        <li>
+          <strong>Optimized power for wearability.</strong>
+          A 5000mAh power bank was too heavy for a wearable prototype, so I moved to a compact 3.7V 1500mAh LiPo battery charged via a TP4056.
+          Because the Arduino required 5V, I added an <em>MT3608</em> DC-DC boost converter — a practical lesson in voltage regulation for embedded systems.
+        </li>
 
-      <li>
-        <strong>Improved mechanical stability through iteration.</strong>
-        Velcro straps initially failed during movement. After testing, I learned to stack the modules and secure them with rubber bands, which significantly improved stability and reduced the device’s footprint.
-      </li>
+        <li>
+          <strong>Improved mechanical stability through iteration.</strong>
+          Velcro straps initially failed during movement. After testing, I learned to stack the modules and secure them with rubber bands, which significantly improved stability and reduced the device's footprint.
+        </li>
 
-      <li>
-        <strong>Enhanced user appeal with lightweight enclosure.</strong>
-        The early prototype looked unfinished, which could reduce engagement for younger users. To increase comfort and appeal, I enclosed the electronics in a lightweight Mickey Mouse rubber case, making the device more inviting to wear.
-      </li>
-    </ol>
+        <li>
+          <strong>Enhanced user appeal with lightweight enclosure.</strong>
+          The early prototype looked unfinished, which could reduce engagement for younger users. To increase comfort and appeal, I enclosed the electronics in a lightweight Mickey Mouse rubber case, making the device more inviting to wear.
+        </li>
+      </ol>
 
-    <p class="note">These iterative changes reflect a user-centered design approach: optimizing sensor integration, power, mechanical reliability, and aesthetics to make the prototype practical for dance rehearsal.</p>
+      <p class="note">These iterative changes reflect a user-centered design approach: optimizing sensor integration, power, mechanical reliability, and aesthetics to make the prototype practical for dance rehearsal.</p>
     </div>
 
     <!-- Customer Feedback -->
-<div class="card">
-  <h2>Customer Feedback & Demonstrations</h2>
-  <div class="video-grid">
-    <!-- Add custom CSS for video-grid layout -->
-    <style>
-      .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-      }
-      .video-container {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        border-radius: 10px;
-      }
-      .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-    </style>
-
-    <!-- Video 1 -->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/BoOgFBGVl6Q?rel=0&modestbranding=1&autoplay=0"
-        title="Customer Testimonial 1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <!-- Video 2 -->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/SjBMGCmqOjA?rel=0&modestbranding=1&autoplay=0"
-        title="Product Demonstration"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="video-container">
-      <iframe
-        src="https://www.youtube.com/embed/PfZOiJS4gNU?rel=0&modestbranding=1&autoplay=0"
-        title="Customer Testimonial 2"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
-
-  <!-- Written Testimonials -->
-  <div class="testimonials" style="margin-top: 2rem;">
-    <h3>What Our Users Say</h3>
-    <div class="testimonial-grid" style="display: grid; gap: 20px; margin-top: 1rem;">
-      <blockquote>
-        "The real-time feedback helped me perfect my movements without developing bad habits. It's like having a personal coach!" 
-        <footer>- Sarah M., Professional Dancer</footer>
-      </blockquote>
-      <blockquote>
-        "We've implemented this device in our dance studio, and it's been invaluable for preventing injuries among our students."
-        <footer>- Michael R., Dance Studio Owner</footer>
-      </blockquote>
-    </div>
-  </div>
-</div>
-
     <div class="card">
-  <h2>Customer Feature Requests</h2>
-  <div class="feature-requests">
-    <h3>Health Monitoring Enhancements</h3>
-    <ul>
-      <li><strong>Spine Movement Tracking:</strong> Monitor posture and spine alignment during dance/yoga movements to prevent injuries</li>
-      <li><strong>Breath Analysis:</strong>
-        <ul>
-          <li>Track oxygen saturation levels during performance</li>
-          <li>Detect shallow vs thoracic breathing patterns</li>
-          <li>Provide real-time breathing guidance aligned with movements</li>
-        </ul>
-      </li>
-      <li><strong>Movement Standards Compliance:</strong>
-        <ul>
-          <li>Compare movement patterns with standardized guidelines for yoga poses</li>
-          <li>Track deviations from proper dance technique standards</li>
-          <li>Provide corrective feedback based on established best practices</li>
-        </ul>
-      </li>
-    </ul>
+      <h2>Customer Feedback & Demonstrations</h2>
+      <div class="video-grid">
+        <!-- Add custom CSS for video-grid layout -->
+        <style>
+          .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+          }
+          .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+          }
+          .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+          }
+        </style>
 
-    <h3>Advanced Analytics Features</h3>
-    <ul>
-      <li><strong>Biomarker Tracking:</strong> Monitor hormone levels associated with physical stress and pain</li>
-      <li><strong>Progress Visualization:</strong>
+        <!-- Video 1 -->
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/BoOgFBGVl6Q?rel=0&modestbranding=1&autoplay=0"
+            title="Customer Testimonial 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/SjBMGCmqOjA?rel=0&modestbranding=1&autoplay=0"
+            title="Product Demonstration"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/PfZOiJS4gNU?rel=0&modestbranding=1&autoplay=0"
+            title="Customer Testimonial 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Written Testimonials -->
+      <div class="testimonials" style="margin-top: 2rem;">
+        <h3>What Our Users Say</h3>
+        <div class="testimonial-grid" style="display: grid; gap: 20px; margin-top: 1rem;">
+          <blockquote>
+            "The real-time feedback helped me perfect my movements without developing bad habits. It's like having a personal coach!" 
+            <footer>- Sarah M., Professional Dancer</footer>
+          </blockquote>
+          <blockquote>
+            "We've implemented this device in our dance studio, and it's been invaluable for preventing injuries among our students."
+            <footer>- Michael R., Dance Studio Owner</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+        <!-- Customer Feature Requests -->
+    <div class="card">
+      <h2>Customer Feature Requests</h2>
+      <div class="feature-requests">
+        <h3>Health Monitoring Enhancements</h3>
         <ul>
-          <li>Personal improvement charts showing progress over time</li>
-          <li>Comparison with ideal movement patterns</li>
-          <li>Historical tracking of breathing efficiency</li>
+          <li><strong>Spine Movement Tracking:</strong> Monitor posture and spine alignment during dance/yoga movements to prevent injuries</li>
+          <li><strong>Breath Analysis:</strong>
+            <ul>
+              <li>Track oxygen saturation levels during performance</li>
+              <li>Detect shallow vs thoracic breathing patterns</li>
+              <li>Provide real-time breathing guidance aligned with movements</li>
+            </ul>
+          </li>
+          <li><strong>Movement Standards Compliance:</strong>
+            <ul>
+              <li>Compare movement patterns with standardized guidelines for yoga poses</li>
+              <li>Track deviations from proper dance technique standards</li>
+              <li>Provide corrective feedback based on established best practices</li>
+            </ul>
+          </li>
         </ul>
-      </li>
-      <li><strong>Predictive Analytics:</strong>
+
+        <h3>Advanced Analytics Features</h3>
         <ul>
-          <li>Performance trend forecasting</li>
-          <li>Early injury risk detection</li>
-          <li>Personalized improvement projections</li>
+          <li><strong>Biomarker Tracking:</strong> Monitor hormone levels associated with physical stress and pain</li>
+          <li><strong>Progress Visualization:</strong>
+            <ul>
+              <li>Personal improvement charts showing progress over time</li>
+              <li>Comparison with ideal movement patterns</li>
+              <li>Historical tracking of breathing efficiency</li>
+            </ul>
+          </li>
+          <li><strong>Predictive Analytics:</strong>
+            <ul>
+              <li>Performance trend forecasting</li>
+              <li>Early injury risk detection</li>
+              <li>Personalized improvement projections</li>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
-  </div>
-</div>
+      </div>
+    </div>
 
     <!-- Impact / Feedback -->
     <div class="card">
       <h2>User Feedback & Impact</h2>
       <blockquote>
-        “This device helped me notice subtle fatigue before it became a strain. I could adjust my technique instantly!” – Dance Instructor
+        "This device helped me notice subtle fatigue before it became a strain. I could adjust my technique instantly!" – Dance Instructor
       </blockquote>
       <blockquote>
-        “Visualizing my arm motion side-by-side with the teacher helped me improve faster than I expected.” – Student Dancer
+        "Visualizing my arm motion side-by-side with the teacher helped me improve faster than I expected." – Student Dancer
       </blockquote>
       <img src="images/user-testing.jpg" alt="User testing device">
     </div>
@@ -376,3 +380,4 @@
   </script>
 </body>
 </html>
+
